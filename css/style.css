@@ -237,7 +237,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    max-width: 694px;
+    max-width: 734px;
     /* <= контентная зона до ~560px */
     padding: 40px 0 48px 80px;
     /* паддинги только слева/сверху/снизу */
@@ -340,10 +340,200 @@ body {
     /* держим акцент справа */
 }
 
+/* -----------pizzas */
+
+.pizzas__grid {
+
+    display: flex;
+    justify-content: space-between;
+    /* display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); */
+    /* 2 колонки */
+    flex-wrap: wrap;
+    gap: 20px;
+    /* расстояние между карточками */
+}
+
+.pizzas {
+    padding: 0 20px;
+}
+
+/* Карточка */
+.card {
+
+    display: flex;
+
+    /* ряд: слева фото, справа контент */
+    align-items: stretch;
+    background: #fff;
+
+    overflow: hidden;
+    /* скругление работает и для картинки */
+
+    min-height: 335px;
+    min-width: 649px;
+    /* задаём «карточную» высоту */
+    border-radius: 22px;
+    /* скругление как в макете */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .08);
+}
+
+/* Левая колонка с картинкой */
+.card__media {
+
+    /* фиксированная ширина под фото */
+    min-height: 220px;
+    /* чтобы не схлопывалась, если текста мало */
+    position: relative;
+    flex: 0 0 300px;
+    /* было 260px — делаем шире */
+    aspect-ratio: 1 / 1;
+    /* квадрат вместо min-height */
+    overflow: hidden;
+    /* обрезаем круг у угла */
+}
+
+.card__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* картинка заполняет колонку, не растягивая карточку */
+    object-position: left center;
+    /* смещена к левому краю, как в макете */
+
+
+
+}
+
+/* Правая колонка с текстом */
+.card__body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
+    /* внутренние отступы контента */
+    padding: 28px 28px 28px 32px;
+    /* компактнее и ровнее */
+    gap: 10px;
+}
+
+/* Текстовые элементы */
+.card__title {
+    max-width: 227px;
+    margin: 0;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 95%;
+    letter-spacing: 0.03em;
+    color: #000;
+    margin-bottom: 45px;
+    margin-top: 51px;
+
+}
+
+.card__meta {
+    margin: 0;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 145%;
+    letter-spacing: 0.03em;
+    color: #b4bccf
+}
+
+.card__footer {
+    margin-top: auto;
+    /* прижимает футер вниз */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.card__price {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 145%;
+    letter-spacing: 0.03em;
+    color: #01c550;
+}
+
+/* Кнопка "+" */
+.card__cta {
+    position: relative;
+    width: 91px;
+    height: 91px;
+    border-radius: 18px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .06);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+    color: #111;
+    /* цвет плюса берём из currentColor */
+    cursor: pointer;
+}
+
+.card__cta {
+    --plus-size: 45px;
+    /* «длина» палочек */
+    --plus-thickness: 4px;
+    /* толщина линий (будет тоньше/толще) */
+    --plus-radius: 2px;
+    /* сглаживание концов (для background-версии) */
+}
+
+/* Горизонтальная палочка (через border) */
+.card__cta::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: var(--plus-size);
+    height: 0;
+    border-top: var(--plus-thickness) solid currentColor;
+    transform: translate(-50%, -50%);
+}
+
+/* Вертикальная палочка (через border) */
+.card__cta::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: var(--plus-size);
+    border-left: var(--plus-thickness) solid currentColor;
+    transform: translate(-50%, -50%);
+}
+
+/* Ховеры/фокус — по желанию */
+.card__cta:hover {
+    filter: brightness(.98);
+}
+
+.card__cta:active {
+    transform: translateY(1px);
+}
+
+.card__cta:focus-visible {
+    outline: 2px solid #f4b6a9;
+    outline-offset: 2px;
+}
+
 /* ========== АДАПТИВ (tablets/phones) ========== */
 @media (max-width: 1024px) {
     .nav__list {
         gap: 28px;
+    }
+}
+
+/* Адаптив: одна колонка на узких экранах */
+@media (max-width: 960px) {
+    .pizzas__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card__media {
+        flex-basis: 220px;
     }
 }
 
