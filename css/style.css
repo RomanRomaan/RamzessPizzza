@@ -363,10 +363,6 @@ body {
 
     display: flex;
 
-    /* ряд: слева фото, справа контент */
-    align-items: stretch;
-    background: #fff;
-
     overflow: hidden;
     /* скругление работает и для картинки */
 
