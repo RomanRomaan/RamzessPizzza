@@ -1,0 +1,85 @@
+/* ====== Modern CSS Reset (короткий) ====== */
+
+/* 1) Корректная модель коробки */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2) Сброс отступов у базовых блоков */
+* {
+    margin: 0;
+}
+
+/* 3) Базовая типографика */
+html,
+body {
+    height: 100%;
+}
+
+html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* 4) Изображения и медиа по ширине контейнера */
+img,
+picture,
+svg,
+video,
+canvas {
+    display: block;
+    max-width: 100%;
+}
+
+/* 5) Наследуем шрифт для форм */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 6) Кнопки/ссылки по умолчанию */
+button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+}
+
+/* 7) Списки без маркеров по умолчанию (добавляй свои классы при необходимости) */
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+}
+
+/* 8) Таблицы (редко, но полезно) */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 9) Снижаем анимации для тех, кто просит меньше движения */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}

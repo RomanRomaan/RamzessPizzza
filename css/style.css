@@ -1,0 +1,379 @@
+/* ========== БАЗА ТЕКСТА И КОНТЕЙНЕРЫ ========== */
+html,
+body {
+    font-family: "Roboto", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+    line-height: 1.5;
+    font-synthesis: none;
+    color: #1A1A1A;
+    background: #fff;
+}
+
+.container {
+    max-width: 1412px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ========== ХЕДЕР (ВЕРХНЯЯ ПОЛОСА + НАВИГАЦИЯ) ========== */
+.header {
+    padding-top: 30px;
+    background: #fff;
+}
+
+.header__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80px;
+}
+
+.logo {
+    margin: 0;
+    line-height: 1;
+}
+
+.logo__text {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 48px;
+    color: #c02020;
+    text-decoration: none;
+    display: block;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Корзина + бейдж */
+.cart-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #dcdcdc;
+    border-radius: 9999px;
+    background: #fff;
+}
+
+.cart-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.cart-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(45%, -45%);
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 9999px;
+    background: #E23D28;
+    color: #fff;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+}
+
+/* CTA */
+.btn--primary {
+    height: 44px;
+    padding: 0 30px;
+    border: 0;
+    border-radius: 90px;
+    background: #df321b;
+    color: #fff;
+    font-weight: 500;
+}
+
+.btn--primary:hover {
+    filter: brightness(0.96);
+}
+
+.btn--primary:focus-visible {
+    outline: 2px solid #f4b6a9;
+    outline-offset: 2px;
+}
+
+/* Нижняя навигация */
+.nav {
+    border-bottom: 1px solid #e6e6e6;
+    margin-top: 8px;
+    margin-bottom: 32px;
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.nav__list a {
+    position: relative;
+    display: inline-block;
+    padding: 12px 0;
+    color: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Активное подчёркивание чуть шире текста */
+.nav__list a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    height: 3px;
+    background: #E23D28;
+    border-radius: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+}
+
+.nav__list a::after {
+    transition: width .2s ease, left .2s ease, right .2s ease, transform .2s ease, background .2s ease;
+}
+
+/* ========== OUR MENU (ЗАГОЛОВОК + ЧИПЫ + SEE ALL) ========== */
+
+.menu__head {
+    margin-bottom: 47px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    /* вместо space-around */
+    margin-top: 16px;
+    flex-wrap: wrap;
+    /* можно переносить на мобиле */
+}
+
+.menu__title {
+    margin: 0;
+    margin-right: 64px;
+    flex: 0 0 auto;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 145%;
+    letter-spacing: 0.03em;
+
+}
+
+/* Центр: занимает всё доступное и центрирует чипы */
+.menu__chips {
+    flex: 1 1 auto;
+    /* растягивается между левым и правым блоками */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    /* расстояние между чипами */
+}
+
+.menu__actions {
+
+    /* уводит блок вправо, даже если чипов мало */
+    color: #df321b;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.menu__actions:hover {
+    text-decoration: underline;
+}
+
+/* Чип */
+.menu-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 50px;
+    padding: 0 35px;
+    border: 1px solid rgba(0, 0, 0, .06);
+    /* лёгкая граница вместо красной */
+    border-radius: 9999px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+
+}
+
+.menu-chip:focus-visible {
+    outline: 2px solid #f4b6a9;
+    outline-offset: 2px;
+}
+
+.menu-chip[aria-pressed="true"] {
+    border-color: rgba(0, 0, 0, .10);
+    /* активный — чуть контрастнее */
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .08);
+}
+
+.menu-chip__icon {
+    width: 56px;
+    /* было 24px */
+    height: 40px;
+    /* padding: 6px; */
+    /* круг итого ≈ 40px */
+    border-radius: 9999px;
+    background: #fff;
+
+}
+
+.menu-chip__label {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 145%;
+    letter-spacing: 0.03em;
+}
+
+/* ========== МЕЛКИЕ ХОВЕРЫ/СОСТОЯНИЯ ========== */
+.nav__list a:hover {
+    opacity: .85;
+}
+
+.menu-chip:hover {
+    filter: brightness(0.98);
+}
+
+.promo {
+    display: flex;
+    align-items: stretch;
+    /* правая колонка растянется по высоте */
+    gap: 32px;
+    /* интервал между колонками */
+    padding: 40px 0 40px 40px;
+
+}
+
+.menu__promo {
+    background: #2f2f2f;
+    border-radius: 28px;
+    overflow: hidden;
+    /* важное: обрежет картинку по радиусу */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .18);
+}
+
+.promo__title {
+    max-width: 474px;
+    line-height: 38px;
+    margin-bottom: 38px;
+}
+
+.promo__title-line {
+    font-weight: 700;
+    font-size: 45px;
+    letter-spacing: 0.03em;
+    color: #fff;
+
+}
+
+.promo__discount {
+    margin-left: 70px;
+    display: inline-block;
+    /* чтобы трансформация применилась ровно к слову */
+    transform: translateY(0.12em);
+    /* опустить вниз на ~12% от собственного кегля */
+    white-space: nowrap;
+    /* держим "50% Off" вместе */
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 96%;
+    letter-spacing: 0.03em;
+    color: #ff9921;
+}
+
+.promo__text {
+    max-width: 662px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 145%;
+    letter-spacing: 0.03em;
+    color: #fff;
+    margin-bottom: 76px;
+}
+
+.btn--secondry {
+    margin-bottom: 47px;
+    height: 60px;
+    padding: 0 32px;
+    min-width: 278px;
+    border: 0;
+    border-radius: 15px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: filter .15s ease, transform .05s ease, box-shadow .15s ease;
+    background: #C02020;
+    color: #fff;
+
+}
+
+.btn--secondry:hover {
+    filter: brightness(.96);
+}
+
+.btn--secondry:active {
+    transform: translateY(1px);
+    filter: brightness(.93);
+}
+
+.btn--secondry:focus-visible {
+    outline: 2px solid #f4b6a9;
+    outline-offset: 3px;
+}
+
+/* ========== АДАПТИВ (tablets/phones) ========== */
+@media (max-width: 1024px) {
+    .nav__list {
+        gap: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo__text {
+        font-size: 36px;
+    }
+
+    .nav__list {
+        gap: 20px;
+    }
+
+    .menu__head {
+        gap: 12px;
+    }
+
+    .menu__chips {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 0 8px;
+    }
+
+    .menu-chip {
+        scroll-snap-align: start;
+    }
+
+    .menu__chips {
+        scroll-snap-type: x mandatory;
+    }
+}
+
+@media (max-width: 480px) {
+    .actions {
+        gap: 12px;
+    }
+
+    .btn--primary {
+        padding: 0 18px;
+    }
+
+    .logo__text {
+        font-size: 30px;
+    }
+}

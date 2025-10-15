@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>RamzessPizza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="header" id="top">
+        <div class="container">
+            <div class="header__bar">
+                <h1 class="logo">
+                    <a href="#top" class="logo__text">RamzessPizza</a>
+                </h1>
+
+                <div class="actions">
+                    <button class="cart-btn" type="button" aria-label="Open cart (0 items)">
+                        <img class="cart-icon" src="icons/cart.svg" alt="" width="24" height="24">
+                        <span class="cart-badge">0</span>
+                    </button>
+                    <button type="button" class="btn btn--primary">Order Call</button>
+                </div>
+            </div>
+
+            <nav class="nav" aria-label="Main">
+                <ul class="nav__list">
+                    <li><a class="active" href="#menu">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#delivery">Delivery &amp; Payment</a></li>
+                    <li><a href="#contacts">Contacts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="menu">
+        <div class="container">
+            <div class="menu__head">
+                <h2 class="menu__title">Our Menu</h2>
+
+                <div class="menu__chips">
+                    <button class="menu-chip" type="button" aria-pressed="true">
+                        <img class="menu-chip__icon" src="icons/pizza.jpg" alt="">
+                        <span class="menu-chip__label">Pizza</span>
+                    </button>
+                    <button class="menu-chip" type="button" aria-pressed="true">
+                        <img class="menu-chip__icon" src="icons/burger.jpg" alt="">
+                        <span class="menu-chip__label">Burger</span>
+                    </button>
+                    <button class="menu-chip" type="button" aria-pressed="true">
+                        <img class="menu-chip__icon" src="icons/fries.jpg" alt="">
+                        <span class="menu-chip__label">Fries</span>
+                    </button>
+                    <button class="menu-chip" type="button" aria-pressed="true">
+                        <img class="menu-chip__icon" src="icons/pack.jpg" alt="">
+                        <span class="menu-chip__label">Pack</span>
+                    </button>
+                    <a class="menu__actions" href="#all">See All</a>
+
+                    <!-- ещё чипы -->
+                </div>
+
+            </div>
+            <!-- ПРОМО-БАННЕР внутри секции menu -->
+            <section class="menu__promo" aria-labelledby="promo-title">
+                <div class="promo">
+                    <div class="promo__content">
+                        <h3 class="promo__title" id="promo-title">
+                            <span class="promo__title-line">Make Your First Order</span>
+                            <span class="promo__title-line">and Get <span class="promo__discount">50% Off</span></span>
+                        </h3>
+
+                        <div class="promo__text">
+                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
+                                demonstrate the visual form of a document or a typeface without.</p>
+                        </div>
+
+                        <div class="promo__actions">
+                            <button class="btn btn--secondry" type="button">Order Now</button>
+                        </div>
+                    </div>
+
+                    <div class="promo__media">
+                        <div class="promo__media-inner">
+                            <img class="promo__img" src="img/banner-pizza.jpg"
+                                alt="Pizza with chicken, tomatoes and basil" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ниже будет промо и грид -->
+
+            <!-- <div class="menu__grid">…</div> -->
+        </div>
+    </section>
+
+
+
+    <script src="js/main.js" type="module"></script>
+</body>
+
+</html>
