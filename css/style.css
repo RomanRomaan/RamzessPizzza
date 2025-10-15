@@ -33,12 +33,12 @@ body {
 }
 
 .logo__text {
+    display: block;
     font-style: italic;
     font-weight: 700;
     font-size: 48px;
     color: #c02020;
     text-decoration: none;
-    display: block;
 }
 
 .actions {
@@ -55,42 +55,41 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
+    background: #fff;
     border: 1px solid #dcdcdc;
     border-radius: 9999px;
-    background: #fff;
 }
 
 .cart-icon {
+    display: block;
     width: 20px;
     height: 20px;
-    display: block;
 }
 
 .cart-badge {
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(45%, -45%);
     min-width: 18px;
     height: 18px;
     padding: 0 4px;
-    border-radius: 9999px;
-    background: #E23D28;
     color: #fff;
+    background: #E23D28;
     font-size: 12px;
     line-height: 18px;
     text-align: center;
+    transform: translate(45%, -45%);
 }
 
 /* CTA */
 .btn--primary {
     height: 44px;
     padding: 0 30px;
+    color: #fff;
+    background: #df321b;
+    font-weight: 500;
     border: 0;
     border-radius: 90px;
-    background: #df321b;
-    color: #fff;
-    font-weight: 500;
 }
 
 .btn--primary:hover {
@@ -104,9 +103,9 @@ body {
 
 /* Нижняя навигация */
 .nav {
-    border-bottom: 1px solid #e6e6e6;
     margin-top: 8px;
     margin-bottom: 32px;
+    border-bottom: 1px solid #e6e6e6;
 }
 
 .nav__list {
@@ -124,17 +123,16 @@ body {
     white-space: nowrap;
 }
 
-/* Активное подчёркивание чуть шире текста */
 .nav__list a.active::after {
     content: "";
     position: absolute;
+    left: 50%;
     bottom: -1px;
     height: 3px;
+    width: 120%;
     background: #E23D28;
     border-radius: 2px;
-    left: 50%;
     transform: translateX(-50%);
-    width: 120%;
 }
 
 .nav__list a::after {
@@ -142,43 +140,35 @@ body {
 }
 
 /* ========== OUR MENU (ЗАГОЛОВОК + ЧИПЫ + SEE ALL) ========== */
-
 .menu__head {
-    margin-bottom: 47px;
     display: flex;
     align-items: center;
-    gap: 24px;
-    /* вместо space-around */
-    margin-top: 16px;
     flex-wrap: wrap;
-    /* можно переносить на мобиле */
+    gap: 24px;
+    margin-top: 16px;
+    margin-bottom: 47px;
 }
 
 .menu__title {
+    flex: 0 0 auto;
     margin: 0;
     margin-right: 64px;
-    flex: 0 0 auto;
     font-weight: 700;
     font-size: 30px;
     line-height: 145%;
     letter-spacing: 0.03em;
-
 }
 
 /* Центр: занимает всё доступное и центрирует чипы */
 .menu__chips {
-    flex: 1 1 auto;
-    /* растягивается между левым и правым блоками */
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1 1 auto;
     gap: 64px;
-    /* расстояние между чипами */
 }
 
 .menu__actions {
-
-    /* уводит блок вправо, даже если чипов мало */
     color: #df321b;
     font-weight: 600;
     text-decoration: none;
@@ -195,11 +185,10 @@ body {
     gap: 10px;
     height: 50px;
     padding: 0 35px;
+    background: transparent;
     border: 1px solid rgba(0, 0, 0, .06);
-    /* лёгкая граница вместо красной */
     border-radius: 9999px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
-
 }
 
 .menu-chip:focus-visible {
@@ -209,19 +198,14 @@ body {
 
 .menu-chip[aria-pressed="true"] {
     border-color: rgba(0, 0, 0, .10);
-    /* активный — чуть контрастнее */
     box-shadow: 0 10px 28px rgba(0, 0, 0, .08);
 }
 
 .menu-chip__icon {
     width: 56px;
-    /* было 24px */
     height: 40px;
-    /* padding: 6px; */
-    /* круг итого ≈ 40px */
-    border-radius: 9999px;
     background: #fff;
-
+    border-radius: 9999px;
 }
 
 .menu-chip__label {
@@ -240,28 +224,38 @@ body {
     filter: brightness(0.98);
 }
 
+/* ========== ПРОМО-БАННЕР ========== */
 .promo {
     display: flex;
     align-items: stretch;
-    /* правая колонка растянется по высоте */
     gap: 32px;
-    /* интервал между колонками */
-    padding: 40px 0 40px 40px;
+    padding: 0;
+}
 
+/* левая колонка: фикс/максимальная ширина и внутренние отступы */
+.promo__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 694px;
+    /* <= контентная зона до ~560px */
+    padding: 40px 0 48px 80px;
+    /* паддинги только слева/сверху/снизу */
+    color: #fff;
 }
 
 .menu__promo {
     background: #2f2f2f;
     border-radius: 28px;
     overflow: hidden;
-    /* важное: обрежет картинку по радиусу */
+    /* обрезает картинку по правому радиусу */
     box-shadow: 0 20px 60px rgba(0, 0, 0, .18);
 }
 
 .promo__title {
     max-width: 474px;
-    line-height: 38px;
     margin-bottom: 38px;
+    line-height: 38px;
 }
 
 .promo__title-line {
@@ -269,50 +263,44 @@ body {
     font-size: 45px;
     letter-spacing: 0.03em;
     color: #fff;
-
 }
 
 .promo__discount {
-    margin-left: 70px;
     display: inline-block;
-    /* чтобы трансформация применилась ровно к слову */
-    transform: translateY(0.12em);
-    /* опустить вниз на ~12% от собственного кегля */
-    white-space: nowrap;
-    /* держим "50% Off" вместе */
+    margin-left: 70px;
     font-weight: 700;
     font-size: 45px;
     line-height: 96%;
     letter-spacing: 0.03em;
     color: #ff9921;
+    white-space: nowrap;
+    transform: translateY(0.12em);
 }
 
 .promo__text {
     max-width: 662px;
+    margin-bottom: 76px;
+    color: #fff;
     font-weight: 400;
     font-size: 16px;
     line-height: 145%;
     letter-spacing: 0.03em;
-    color: #fff;
-    margin-bottom: 76px;
 }
 
 .btn--secondry {
-    margin-bottom: 47px;
     height: 60px;
-    padding: 0 32px;
     min-width: 278px;
-    border: 0;
-    border-radius: 15px;
+    padding: 0 32px;
+    color: #fff;
+    background: #C02020;
     font-size: 24px;
     font-weight: 700;
     line-height: 1;
     text-decoration: none;
+    border: 0;
+    border-radius: 15px;
     cursor: pointer;
     transition: filter .15s ease, transform .05s ease, box-shadow .15s ease;
-    background: #C02020;
-    color: #fff;
-
 }
 
 .btn--secondry:hover {
@@ -327,6 +315,29 @@ body {
 .btn--secondry:focus-visible {
     outline: 2px solid #f4b6a9;
     outline-offset: 3px;
+}
+
+.promo__media-inner {
+    height: 100%;
+}
+
+/* правая колонка должна ЗАНИМАТЬ весь остаток */
+.promo__media {
+    align-self: stretch;
+    flex: 1 1 0;
+    /* тянем на всю доступную ширину */
+    min-width: 0;
+    /* важно: разрешаем сжиматься в флексе */
+}
+
+.promo__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* заполнить колонку */
+    object-position: right center;
+    /* держим акцент справа */
 }
 
 /* ========== АДАПТИВ (tablets/phones) ========== */
