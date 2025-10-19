@@ -880,6 +880,7 @@ body {
     .nav__list {
         gap: 14px;
     }
+
 }
 
 /* ====== ≤400: маленькие телефоны ====== */
@@ -908,7 +909,68 @@ body {
     .card__media {
         flex-basis: 160px;
     }
+
+    /* шапка секции: заголовок на всю ширину, снизу чипы, справа "See All" */
+    .menu__head {
+        display: flex;
+        /* как и было */
+        flex-wrap: wrap;
+    }
+
+    .menu__title {
+        flex: 0 0 100%;
+        margin-right: 0;
+    }
+
+    /* две колонки чипов сеткой */
+    .menu__chips {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 14px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* сам чип — компактнее и центрирован */
+    .menu-chip {
+        height: 44px;
+        padding: 0 12px;
+        justify-content: center;
+    }
+
+    .menu-chip__icon {
+        width: 28px;
+        height: 20px;
+    }
+
+    .menu-chip__label {
+        font-size: 15px;
+    }
+
+    /* "See All" прилипает вправо своей строки */
+    .menu__actions {
+        display: block;
+        /* на всякий */
+        width: 100%;
+        /* занять всю строку */
+        flex: 0 0 100%;
+        /* если родитель — flex */
+        order: 3;
+        /* идти после чипов */
+        text-align: center;
+        /* центрируем текст */
+        margin: 6px 0 0;
+        /* небольшой отступ сверху */
+        padding: 0;
+        /* обнуляем паддинги из других брейкпоинтов */
+
+    }
+
+    .menu__actions {
+        margin-left: 50%;
+    }
 }
+
 
 @media (max-width: 360px) {
     .pizzas {
@@ -965,6 +1027,20 @@ body {
 
     .menu-chip__label {
         font-size: 14px;
+    }
+
+    .menu-chip {
+        height: 40px;
+        padding: 0 10px;
+    }
+
+    .menu-chip__label {
+        font-size: 14px;
+    }
+
+    .menu-chip__icon {
+        width: 24px;
+        height: 18px;
     }
 }
 
