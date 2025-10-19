@@ -343,35 +343,33 @@ body {
 /* -----------pizzas */
 
 .pizzas__grid {
-
-    display: flex;
-    justify-content: space-between;
-    /* display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr)); */
-    /* 2 колонки */
-    flex-wrap: wrap;
-    gap: 20px;
-    /* расстояние между карточками */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(560px, 1fr));
+    /* две «резиновые» колонки */
+    gap: 32px;
+    align-items: stretch;
+    justify-items: stretch;
+    margin: 0 auto;
+    /* центрируем сетку */
 }
 
 .pizzas {
-    padding: 0 20px;
+    padding: 0;
+    margin: 0 auto;
 }
 
 /* Карточка */
 .card {
-
     display: flex;
-
     overflow: hidden;
-    /* скругление работает и для картинки */
-
     min-height: 335px;
-    min-width: 649px;
-    /* задаём «карточную» высоту */
+    min-width: 0;
+    /* важно для grid: не распираем колонку */
+    width: 100%;
+    /* занимай всю ширину трека */
     border-radius: 22px;
-    /* скругление как в макете */
     box-shadow: 0 20px 60px rgba(0, 0, 0, .08);
+
 }
 
 /* Левая колонка с картинкой */
@@ -515,62 +513,353 @@ body {
     outline-offset: 2px;
 }
 
-/* ========== АДАПТИВ (tablets/phones) ========== */
-@media (max-width: 1024px) {
-    .nav__list {
-        gap: 28px;
+@media(max-width:1250px) {
+    @media (max-width:1250px) {
+
+        /* всё ещё 2 колонки, но компактнее и чуть меньше gap */
+        .pizzas__grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        /* сама карточка ниже и уже */
+        .card {
+            min-height: 280px;
+        }
+
+        /* левая колонка с фото — уже */
+        .card__media {
+            flex: 0 0 240px;
+            /* было 300px */
+        }
+
+        /* контент плотнее */
+        .card__body {
+            padding: 22px 22px 22px 24px;
+            /* было 28/32 */
+            gap: 8px;
+        }
+
+        /* типографика компактнее */
+        .card__title {
+            font-size: 30px;
+            /* было 36px */
+            margin-top: 28px;
+            margin-bottom: 24px;
+            max-width: none;
+        }
+
+        .card__meta {
+            font-size: 16px;
+        }
+
+        /* было 20px */
+        .card__price {
+            font-size: 28px;
+        }
+
+        /* было 32px */
+
+        /* кнопка «+» поменьше */
+        .card__cta {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            --plus-size: 36px;
+            /* было 45px */
+        }
     }
+
 }
 
-/* Адаптив: одна колонка на узких экранах */
-@media (max-width: 960px) {
+/* ====== ≤1250: 2 колонки остаются, всё компактнее ====== */
+@media (max-width:1250px) {
+
+    /* сетка — всё ещё 2 столбца, но меньше отступы */
     .pizzas__grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        margin: 0 auto;
+        /* центр */
+    }
+
+    .card {
+        min-height: 280px;
     }
 
     .card__media {
-        flex-basis: 220px;
+        flex: 0 0 240px;
+    }
+
+    /* было 300px */
+
+    .card__body {
+        padding: 22px 22px 22px 24px;
+        gap: 8px;
+    }
+
+    .card__title {
+        font-size: 30px;
+        /* было 36px */
+        margin-top: 28px;
+        margin-bottom: 24px;
+        max-width: none;
+    }
+
+    .card__meta {
+        font-size: 16px;
+    }
+
+    /* было 20px */
+    .card__price {
+        font-size: 28px;
+    }
+
+    /* было 32px */
+
+    .card__cta {
+        width: 72px;
+        height: 72px;
+        border-radius: 14px;
+        --plus-size: 36px;
+        /* было 45px */
     }
 }
 
-@media (max-width: 768px) {
-    .logo__text {
-        font-size: 36px;
+/* ====== ≤1040: всё ещё 2 колонки, ещё компактнее ====== */
+@media (max-width:1040px) {
+    .pizzas__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        margin: 0 auto;
     }
 
-    .nav__list {
+    .card {
+        min-height: 250px;
+        border-radius: 18px;
+    }
+
+    .card__media {
+        flex: 0 0 210px;
+        /* было 240px на 1250 */
+        aspect-ratio: 1 / 1;
+    }
+
+    .card__body {
+        padding: 18px 18px 18px 20px;
+        gap: 6px;
+    }
+
+    .card__title {
+        font-size: 26px;
+        /* было 30px */
+        margin-top: 18px;
+        margin-bottom: 16px;
+    }
+
+    .card__meta {
+        font-size: 14px;
+    }
+
+    /* было 16px */
+    .card__price {
+        font-size: 24px;
+    }
+
+    /* было 28px */
+
+    .card__cta {
+        width: 64px;
+        height: 64px;
+        border-radius: 12px;
+        --plus-size: 30px;
+        /* было 36px */
+    }
+}
+
+/* ====== ≤1024: баннер/чипы (tablet) ====== */
+@media (max-width: 1024px) {
+    .menu__promo {
+        border-radius: 24px;
+    }
+
+    .promo {
         gap: 20px;
     }
 
-    .menu__head {
-        gap: 12px;
+    .promo__content {
+        padding: 32px 0 36px 48px;
+        max-width: 620px;
     }
 
-    .menu__chips {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding: 0 8px;
+    .promo__title-line,
+    .promo__discount {
+        font-size: 40px;
+    }
+
+    .promo__text {
+        margin-bottom: 48px;
+        max-width: 560px;
+    }
+
+    .menu-chip__label {
+        font-size: 15px;
+    }
+
+    .menu-chip__icon {
+        width: 36px;
+        height: 20px;
     }
 
     .menu-chip {
-        scroll-snap-align: start;
+        gap: 5px;
+        padding: 0 15px;
     }
 
-    .menu__chips {
-        scroll-snap-type: x mandatory;
+    .menu__actions {
+        font-size: 15px;
+        padding-right: 10px;
     }
 }
 
-@media (max-width: 480px) {
-    .actions {
-        gap: 12px;
+/* ====== ≤768: баннер в колонку, карточки — 1 колонка ====== */
+@media (max-width: 768px) {
+
+    /* Баннер */
+    .promo {
+        flex-direction: column;
+        gap: 0;
     }
 
-    .btn--primary {
-        padding: 0 18px;
+    .promo__content {
+        order: 1;
+        padding: 28px 20px 24px 20px;
+        max-width: none;
     }
 
-    .logo__text {
-        font-size: 30px;
+    .promo__media {
+        order: 2;
+        align-self: stretch;
+        flex: none;
+        min-width: 0;
+    }
+
+    .promo__media-inner {
+        height: 260px;
+    }
+
+    .promo__img {
+        object-position: center;
+    }
+
+    .promo__title {
+        margin-bottom: 24px;
+        line-height: 1.05;
+    }
+
+    .promo__title-line,
+    .promo__discount {
+        font-size: 32px;
+    }
+
+    .promo__discount {
+        margin-left: 16px;
+        transform: translateY(0.08em);
+    }
+
+    .promo__text {
+        margin-bottom: 24px;
+        font-size: 15px;
+    }
+
+    .btn--secondry {
+        width: 100%;
+        height: 54px;
+        border-radius: 14px;
+        min-width: 0;
+    }
+
+    /* Карточки меню */
+    .pizzas {
+        margin: 0 auto;
+    }
+
+    .pizzas__grid {
+        grid-template-columns: 1fr;
+        /* одна колонка */
+        gap: 18px;
+        margin: 0 auto;
+    }
+
+    .card {
+        min-height: 240px;
+    }
+
+    .card__media {
+        flex-basis: 200px;
+    }
+}
+
+/* ====== ≤560: компактные телефоны ====== */
+@media (max-width: 560px) {
+    .menu__promo {
+        border-radius: 20px;
+    }
+
+    .promo__media-inner {
+        height: 220px;
+    }
+
+    .promo__title-line,
+    .promo__discount {
+        font-size: 28px;
+    }
+
+    .promo__discount {
+        margin-left: 12px;
+    }
+
+    .promo__text {
+        margin-bottom: 20px;
+    }
+
+    .card__media {
+        flex-basis: 180px;
+    }
+
+    .card__title {
+        font-size: 24px;
+    }
+
+    .card__price {
+        font-size: 22px;
+    }
+}
+
+/* ====== ≤400: маленькие телефоны ====== */
+@media (max-width: 400px) {
+    .promo__content {
+        padding: 20px 16px 18px;
+    }
+
+    .promo__media-inner {
+        height: 190px;
+    }
+
+    .promo__title-line,
+    .promo__discount {
+        font-size: 24px;
+    }
+
+    .promo__discount {
+        margin-left: 10px;
+    }
+
+    .btn--secondry {
+        height: 50px;
+    }
+
+    .card__media {
+        flex-basis: 160px;
     }
 }
