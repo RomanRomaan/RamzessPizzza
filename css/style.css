@@ -724,6 +724,13 @@ body {
 
 /* ====== ≤768: баннер в колонку, карточки — 1 колонка ====== */
 @media (max-width: 768px) {
+    .menu-chip__icon {
+        width: 30px;
+    }
+
+    .menu-chips {
+        gap: 24px;
+    }
 
     /* Баннер */
     .promo {
@@ -800,8 +807,41 @@ body {
     }
 }
 
+@media (max-width: 610px) {
+    .menu__title {
+        font-size: 15px;
+    }
+
+    .menu__chips {
+        gap: 10px;
+    }
+
+    .btn--primary {
+        height: 22px;
+        padding: 0 15px;
+        color: #fff;
+        background: #df321b;
+        font-weight: 500;
+        border: 0;
+        border-radius: 90px;
+        font-size: 10px;
+    }
+
+    .logo__text {
+        font-size: 28px;
+    }
+}
+
 /* ====== ≤560: компактные телефоны ====== */
 @media (max-width: 560px) {
+    .menu-chip__label {
+        font-size: 10px;
+    }
+
+    .menu__actions {
+        font-size: 10px;
+    }
+
     .menu__promo {
         border-radius: 20px;
     }
@@ -836,6 +876,12 @@ body {
     }
 }
 
+@media (max-width: 450px) {
+    .nav__list {
+        gap: 14px;
+    }
+}
+
 /* ====== ≤400: маленькие телефоны ====== */
 @media (max-width: 400px) {
     .promo__content {
@@ -861,5 +907,107 @@ body {
 
     .card__media {
         flex-basis: 160px;
+    }
+}
+
+@media (max-width: 360px) {
+    .pizzas {
+        padding: 0 12px;
+    }
+
+    .pizzas__grid {
+        gap: 12px;
+    }
+
+    .card {
+        min-height: 220px;
+        border-radius: 14px;
+    }
+
+    .card__media {
+        flex: 0 0 36vw;
+        max-width: 150px;
+    }
+
+    .card__body {
+        padding: 14px 12px 14px 14px;
+        gap: 6px;
+    }
+
+    .card__title {
+        font-size: 22px;
+        margin: 8px 0 10px;
+    }
+
+    .card__meta {
+        font-size: 13px;
+    }
+
+    .card__price {
+        font-size: 22px;
+    }
+
+    .card__cta {
+        width: 52px;
+        height: 52px;
+        border-radius: 10px;
+        --plus-size: 24px;
+    }
+
+    .menu__chips {
+        gap: 8px;
+        padding: 0 6px;
+    }
+
+    .menu-chip {
+        padding: 0 12px;
+    }
+
+    .menu-chip__label {
+        font-size: 14px;
+    }
+}
+
+/* ≤320px — «последний шанс» */
+@media (max-width: 320px) {
+    .logo__text {
+        font-size: 28px;
+    }
+
+    .btn--primary {
+        height: 36px;
+        padding: 0 14px;
+    }
+
+    .promo__content {
+        padding: 18px 12px 14px;
+    }
+
+    .promo__media-inner {
+        height: 180px;
+    }
+
+    .promo__title-line,
+    .promo__discount {
+        font-size: 22px;
+    }
+
+    .btn--secondry {
+        height: 48px;
+    }
+
+    .card__media {
+        flex: 0 0 34vw;
+        max-width: 138px;
+    }
+
+    .card__title {
+        font-size: 20px;
+    }
+
+    .card__cta {
+        width: 48px;
+        height: 48px;
+        --plus-size: 22px;
     }
 }
