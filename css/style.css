@@ -166,12 +166,38 @@ body {
     align-items: center;
     flex: 1 1 auto;
     gap: 64px;
+    transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, color .2s ease, filter .2s ease;
+
+}
+
+/* активный (нажатый) чип */
+.menu-chip[aria-pressed="true"] {
+    background: #c02020;
+    color: #fff;
+    border-color: #c02020;
+    box-shadow: 0 10px 28px rgba(192, 32, 32, .35);
+}
+
+/* иконку можно чуть оттенить на активном */
+.menu-chip[aria-pressed="true"] .menu-chip__icon {
+    background: rgba(255, 255, 255, .2);
+}
+
+/* hover для активного — чуть приглушить, чтобы было понятно, что он уже выбран */
+.menu-chip[aria-pressed="true"]:hover {
+    filter: brightness(.98);
 }
 
 .menu__actions {
     color: #df321b;
     font-weight: 600;
     text-decoration: none;
+}
+
+.menu__actions.is-active {
+    color: #df321b;
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 .menu__actions:hover {
